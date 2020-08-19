@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C092985-DB6A-43E0-B474-96804FF5575D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ILTool.Kernel</RootNamespace>
+    <AssemblyName>ILTool.Kernel</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BlockInfo.cs" />
+    <Compile Include="CallStack.cs" />
+    <Compile Include="CompiledModel.cs" />
+    <Compile Include="BaseStack.cs" />
+    <Compile Include="Descriptions\DescBase.cs" />
+    <Compile Include="Descriptions\Enums.cs" />
+    <Compile Include="Descriptions\InterfaceDesc.cs" />
+    <Compile Include="Descriptions\ITest.cs" />
+    <Compile Include="Descriptions\TypeDesc.cs" />
+    <Compile Include="Domain\DomainModel.cs" />
+    <Compile Include="Domain\ILocalsAllocator.cs" />
+    <Compile Include="Domain\IManagedHeapFactory.cs" />
+    <Compile Include="Domain\TypeLoader.cs" />
+    <Compile Include="Domain\VTableBuilder.cs" />
+    <Compile Include="ESSlot.cs" />
+    <Compile Include="EvalStack.cs" />
+    <Compile Include="ExceptionHandling\EHTable.cs" />
+    <Compile Include="ExceptionHandling\EHTryEntity.cs" />
+    <Compile Include="ExceptionHandling\IEHTable.cs" />
+    <Compile Include="Exceptions\InvalidStackSizeException.cs" />
+    <Compile Include="Exceptions\InvalidLocalsValueException.cs" />
+    <Compile Include="Exceptions\MaxStackSizeException.cs" />
+    <Compile Include="Exceptions\OperandsNotSupportedByOperationException.cs" />
+    <Compile Include="Exceptions\OpCodeNotImplemented.cs" />
+    <Compile Include="ExecutionEngine.cs" />
+    <Compile Include="ExeptionInfo.cs" />
+    <Compile Include="Heap\GCHeap.cs" />
+    <Compile Include="Heap\HeapObj.cs" />
+    <Compile Include="Heap\IGCHeap.cs" />
+    <Compile Include="Domain\InterfaceOffsetTable.cs" />
+    <Compile Include="Domain\IOTKey.cs" />
+    <Compile Include="Domain\TypeObject.cs" />
+    <Compile Include="Domain\VTable.cs" />
+    <Compile Include="Heap\ITypesHeap.cs" />
+    <Compile Include="Heap\ITypesHeapFactory.cs" />
+    <Compile Include="Heap\TypesHeap.cs" />
+    <Compile Include="ICallStack.cs" />
+    <Compile Include="IEvalStack.cs" />
+    <Compile Include="IExecutionEngine.cs" />
+    <Compile Include="IExecutionInterruptionResolver.cs" />
+    <Compile Include="ILabelResolver.cs" />
+    <Compile Include="ILInstruction.cs" />
+    <Compile Include="IMethodStateMachineFactory.cs" />
+    <Compile Include="IStackBase.cs" />
+    <Compile Include="Domain\ITypeLoader.cs" />
+    <Compile Include="Label.cs" />
+    <Compile Include="LabelResolver.cs" />
+    <Compile Include="LocalVarDescription.cs" />
+    <Compile Include="Metadata\FieldDef.cs" />
+    <Compile Include="Metadata\ImmutableToken.cs" />
+    <Compile Include="Metadata\MethodToken.cs" />
+    <Compile Include="Metadata\ClassToken.cs" />
+    <Compile Include="MethodArgDescription.cs" />
+    <Compile Include="Descriptions\MethodDesc.cs" />
+    <Compile Include="MethodCallResolver.cs" />
+    <Compile Include="MethodFinishedResolver.cs" />
+    <Compile Include="MethodReturnResolver.cs" />
+    <Compile Include="MethodState.cs" />
+    <Compile Include="MethodStateMachineFactory.cs" />
+    <Compile Include="MethodThrowResolver.cs" />
+    <Compile Include="OperationCodes\BaseClasses\BinaryArithmeticEngine.cs" />
+    <Compile Include="OperationCodes\BaseClasses\BinaryConditionEngine.cs" />
+    <Compile Include="OperationCodes\BaseClasses\IPrimitiveOperations.cs" />
+    <Compile Include="OperationCodes\BaseClasses\PrimitiveConversionEngine.cs" />
+    <Compile Include="OperationCodes\BaseClasses\PrimitivesEngine.cs" />
+    <Compile Include="OperationCodes\Engines\AndEngine.cs" />
+    <Compile Include="OperationCodes\Engines\BeqEngine.cs" />
+    <Compile Include="OperationCodes\Engines\BgeEngine.cs" />
+    <Compile Include="OperationCodes\Engines\BoxEngine.cs" />
+    <Compile Include="OperationCodes\Engines\BrEngine.cs" />
+    <Compile Include="OperationCodes\Engines\BrfalseEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Brfalse_sEngine.cs" />
+    <Compile Include="OperationCodes\Engines\BrtrueEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Brtrue_sEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Br_sEngine.cs" />
+    <Compile Include="OperationCodes\Engines\CallEngine.cs" />
+    <Compile Include="OperationCodes\Engines\CallvirtEngine.cs" />
+    <Compile Include="OperationCodes\Engines\CeqEngine.cs" />
+    <Compile Include="OperationCodes\Engines\CgtEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_I1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_I2Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_I4Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_I8Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_R4Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_R8Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_U1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_U2Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_U4Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Conv_U8Engine.cs" />
+    <Compile Include="OperationCodes\Engines\EndfinallyEngine.cs" />
+    <Compile Include="OperationCodes\Engines\LdargEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldarg_0Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldarg_1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldarg_2Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldarg_3Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldarg_sEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_0Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_2Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_3Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_4Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_5Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_6Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_7Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_8Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_M1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4_SEngine.cs" />
+    <Compile Include="OperationCodes\Engines\LdLoc_0Engine.cs" />
+    <Compile Include="OperationCodes\Engines\LdLoc_1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\LdLoc_2Engine.cs" />
+    <Compile Include="OperationCodes\Engines\LdLoc_3Engine.cs" />
+    <Compile Include="OperationCodes\Engines\LdLoc_SEngine.cs" />
+    <Compile Include="OperationCodes\Engines\LdnullEngine.cs" />
+    <Compile Include="OperationCodes\Engines\LeaveEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Leave_sEngine.cs" />
+    <Compile Include="OperationCodes\Engines\NewobjEngine.cs" />
+    <Compile Include="OperationCodes\Engines\NopEngine.cs" />
+    <Compile Include="OperationCodes\Engines\NotEngine.cs" />
+    <Compile Include="OperationCodes\Engines\OrEngine.cs" />
+    <Compile Include="OperationCodes\Engines\PopEngine.cs" />
+    <Compile Include="OperationCodes\Engines\RetEngine.cs" />
+    <Compile Include="OperationCodes\Engines\StLoc_0Engine.cs" />
+    <Compile Include="OperationCodes\Engines\StLoc_1Engine.cs" />
+    <Compile Include="OperationCodes\Engines\StLoc_2Engine.cs" />
+    <Compile Include="OperationCodes\Engines\StLoc_3Engine.cs" />
+    <Compile Include="OperationCodes\Engines\StLoc_sEngine.cs" />
+    <Compile Include="OperationCodes\Engines\SubEngine.cs" />
+    <Compile Include="OperationCodes\Engines\ThrowEngine.cs" />
+    <Compile Include="OperationCodes\Engines\UnboxEngine.cs" />
+    <Compile Include="IInstructionSet.cs" />
+    <Compile Include="Local.cs" />
+    <Compile Include="MethodStateMachine.cs" />
+    <Compile Include="MethodContext.cs" />
+    <Compile Include="OperationCodes\Engines\AddEngine.cs" />
+    <Compile Include="OperationCodes\Engines\IILOperationEngine.cs" />
+    <Compile Include="OperationCodes\Engines\LdLocEngine.cs" />
+    <Compile Include="OperationCodes\Engines\Ldc_I4Engine.cs" />
+    <Compile Include="OperationCodes\Engines\MulEngine.cs" />
+    <Compile Include="OperationCodes\Engines\StLocEngine.cs" />
+    <Compile Include="MtdArg.cs" />
+    <Compile Include="InstructionSet.cs" />
+    <Compile Include="OperationCodes\Engines\XorEngine.cs" />
+    <Compile Include="Primitives\BinaryOperation.cs" />
+    <Compile Include="Primitives\Enums.cs" />
+    <Compile Include="Primitives\UnaryOperation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TempTypeLocator.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
